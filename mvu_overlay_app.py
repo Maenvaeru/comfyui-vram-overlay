@@ -25,7 +25,7 @@ from pynvml import (
 )
 
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel
-from PyQt6.QtCore import Qt, QTimer, QPoint, pyqtSlot
+from PyQt6.QtCore import Qt, QTimer, QPoint, pyqtSlot, QObject
 from PyQt6.QtGui import QFont, QColor, QPalette, QMouseEvent
 
 
@@ -39,8 +39,8 @@ class AppConfig:
     FONT_WEIGHT: QFont.Weight = QFont.Weight.Bold
     
     # Позиционирование
-    RIGHT_MARGIN: int = 60
-    BOTTOM_MARGIN: int = 35
+    RIGHT_MARGIN: int = 130
+    BOTTOM_MARGIN: int = 85
     
     # Логика обновления
     POLL_INTERVAL_MS: int = 500
@@ -198,25 +198,27 @@ class VramOverlayView(QWidget):
 
 
 # --- CONTROLLER (Управление логикой) ---
-class OverlayController:
+class OverlayController(QObject):
     """
     Controller: Связывает Model и View, управляет таймерами.
+    Наследуется от QObject для корректной работы сигналов и слотов.
     """
     def __init__(self, 
                  vram_model: VramMonitorModel, 
                  process_model: ProcessMonitorModel, 
                  view: VramOverlayView) -> None:
+        super().__init__()
         self.vram_model = vram_model
         self.process_model = process_model
         self.view = view
 
         # Таймер обновления VRAM
-        self.vram_timer = QTimer()
+        self.vram_timer = QTimer(self)
         self.vram_timer.timeout.connect(self._update_vram)
         self.vram_timer.start(AppConfig.POLL_INTERVAL_MS)
 
         # Таймер проверки процесса
-        self.process_timer = QTimer()
+        self.process_timer = QTimer(self)
         self.process_timer.timeout.connect(self._check_process_alive)
         self.process_timer.start(AppConfig.PROCESS_CHECK_INTERVAL_MS)
 
@@ -265,6 +267,7 @@ def main() -> None:
     process_model = ProcessMonitorModel(target_pid=args.pid)
     view = VramOverlayView()
     
+    # Контроллер (теперь корректно наследуется от QObject)
     controller = OverlayController(vram_model, process_model, view)
     
     # Запуск цикла событий
