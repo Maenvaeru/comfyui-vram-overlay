@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
 authors = [
-    { name = "MVU" }
+    { name = "Maenvaeru" }
 ]
 keywords = ["comfyui", "vram", "overlay", "monitor", "nvidia", "gpu", "qt"]
 classifiers = [
@@ -39,7 +39,8 @@ packages = ["."]
 
 [tool.comfy]
 # Секция для ComfyUI Registry
-publisherId = "maenvaeru"
+publisherId = "Maenvaeru"
 displayName = "MVU VRAM Overlay"
 icon = "https://raw.githubusercontent.com/Maenvaeru/comfyui-vram-overlay/main/icon.png"
+
 
