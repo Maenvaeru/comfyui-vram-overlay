@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
 authors = [
-    { name = "Maenvaeru" }
+    { name = "maenvaeru" }
 ]
 keywords = ["comfyui", "vram", "overlay", "monitor", "nvidia", "gpu", "qt"]
 classifiers = [
@@ -39,7 +39,8 @@ packages = ["."]
 
 [tool.comfy]
 # ИСПРАВЛЕНИЕ: Ключи должны начинаться с большой буквы (PascalCase)
-PublisherId = "Maenvaeru"
+PublisherId = "maenvaeru"
 DisplayName = "MVU VRAM Overlay"
 Icon = "https://raw.githubusercontent.com/Maenvaeru/comfyui-vram-overlay/main/icon.png"
+
 
