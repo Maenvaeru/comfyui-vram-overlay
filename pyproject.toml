@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mvu-vram-overlay"
+version = "1.0.0"
+description = "A professional, standalone VRAM monitor overlay for ComfyUI (MVU)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+    { name = "MVU" }
+]
+keywords = ["comfyui", "vram", "overlay", "monitor", "nvidia", "gpu", "qt"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Multimedia :: Graphics",
+]
+
+# Зависимости должны строго соответствовать requirements.txt
+dependencies = [
+    "PyQt6>=6.5.0",
+    "psutil>=5.9.5",
+    "nvidia-ml-py>=12.535.133",
+]
+
+[project.urls]
+# ОБЯЗАТЕЛЬНО ЗАМЕНИТЕ ЭТУ ССЫЛКУ НА РЕАЛЬНЫЙ URL ВАШЕГО РЕПОЗИТОРИЯ
+Repository = "https://github.com/Maenvaeru/comfyui-vram-overlay"
+# Bug Tracker = "https://github.com/Maenvaeru/comfyui-vram-overlay/issues"
+
+[tool.setuptools]
+packages = ["."]
+
+[tool.comfy]
+# Секция для ComfyUI Registry
+publisherId = "maenvaeru"
+displayName = "MVU VRAM Overlay"
+icon = ""
