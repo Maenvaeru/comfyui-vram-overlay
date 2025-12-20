@@ -31,7 +31,6 @@ dependencies = [
 ]
 
 [project.urls]
-# ОБЯЗАТЕЛЬНО ЗАМЕНИТЕ ЭТУ ССЫЛКУ НА РЕАЛЬНЫЙ URL ВАШЕГО РЕПОЗИТОРИЯ
 Repository = "https://github.com/Maenvaeru/comfyui-vram-overlay"
 # Bug Tracker = "https://github.com/Maenvaeru/comfyui-vram-overlay/issues"
 
@@ -42,4 +41,4 @@ packages = ["."]
 # Секция для ComfyUI Registry
 publisherId = "maenvaeru"
 displayName = "MVU VRAM Overlay"
-icon = ""
+icon = "https://raw.githubusercontent.com/Maenvaeru/comfyui-vram-overlay/main/icon.png"
