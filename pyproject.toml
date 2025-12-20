@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "comfyui-vram-overlay"
-version = "1.0.1"
+version = "1.0.0"
 description = "A professional, standalone VRAM monitor overlay for ComfyUI (MVU)."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -42,3 +42,4 @@ packages = ["."]
 PublisherId = "Maenvaeru"
 DisplayName = "MVU VRAM Overlay"
 Icon = "https://raw.githubusercontent.com/Maenvaeru/comfyui-vram-overlay/main/icon.png"
+
